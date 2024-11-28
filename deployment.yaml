@@ -1,0 +1,20 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: transcation-deployment 
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: oracle-transaction  
+  template:
+    metadata:
+      labels:
+        app: oracle-transaction 
+    spec: 
+      containers:
+        - name: transcation 
+          image: muralisocial123/transcation-image:latest
+          ports:
+            - containerPort: 3000
+            

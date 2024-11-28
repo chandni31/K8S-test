@@ -17,4 +17,25 @@ spec:
           image: muralisocial123/transcation-image:latest
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi    
+--- 
+# Creating Service YAML File 
+apiVersion: v1 
+kind: Service
+metadata:
+  name: test-oracle-svc 
+spec:
+  selector:
+    app: oracle 
+  ports:
+  - port: 82
+    targetPort: 3000
+    protocol: TCP
+  type: LoadBalancer 
             

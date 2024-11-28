@@ -1,0 +1,19 @@
+apiVersion: apps/v1 
+kind: ReplicaSet
+metadata:
+  name: node-test-app-rs
+  labels:
+    app: node-example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      web: app
+  template: 
+    metadata:
+    spec: 
+      containers:
+        - name: node-test-web 
+          image: muralisocial123/node-test-app:latest
+          ports:
+            - containerPort: 80      

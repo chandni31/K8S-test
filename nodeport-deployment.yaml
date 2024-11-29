@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: transaction-oracle-deployment 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trans
+  template:
+    metadata:
+      labels:
+        app: trans 
+    spec: 
+      containers:
+        - name: trans-app
+          image: muralisocial123/transcation-image:latest
+          ports:
+            - containerPort: 3000 
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi    

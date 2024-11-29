@@ -17,13 +17,13 @@ spec:
         path: "/oracle(/|$)(.*)"
         backend:
           service:
-            name: example-oracle-svc
+            name: app-deployment-svc
             port: 
               number: 82
       - pathType: Prefix
         path: /(.*)
         backend:
           service:
-            name: example-oracle-svc
+            name: app-deployment-svc
             port: 
               number: 82        

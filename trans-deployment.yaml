@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: transacation-app-deployment 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: oracle 
+  template:
+    metadata:
+      labels:
+        app: oracle 
+    spec: 
+      containers:
+        - name: trans-app
+          image: muralisocial123/insurance-app-excelr:latest
+          ports:
+            - containerPort: 80 
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi    

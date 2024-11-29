@@ -14,7 +14,7 @@ spec:
   - http:
       paths:
       - pathType: Prefix
-        path: "/oracle(/|$)(.*)"
+        path: "/oracle-test(/|$)(.*)"
         backend:
           service:
             name: app-deployment-svc
